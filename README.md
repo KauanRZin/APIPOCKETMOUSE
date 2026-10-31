@@ -59,6 +59,33 @@ O servidor iniciará em `http://localhost:3000`.
 
 ---
 
+### Usuários (`/users`) — Rotas Públicas (Sem JWT)
+
+- **`GET /users`** — Lista todos os usuários cadastrados e seus respectivos perfis de mouse (não precisa de token JWT).
+  Exemplo de retorno:
+  ```json
+  [
+    {
+      "id": 1,
+      "name": "Usuário 1",
+      "email": "usuario1@email.com",
+      "googleId": null,
+      "profiles": [
+        {
+          "id": 1,
+          "userId": 1,
+          "name": "Casa",
+          "sensitivity": 1.25
+        }
+      ]
+    }
+  ]
+  ```
+
+- **`GET /users/:id`** — Busca um usuário específico pelo `id` e retorna seus perfis (não precisa de token JWT).
+
+---
+
 ### Perfis de Sensibilidade do Mouse (`/profiles`)
 
 Todas as rotas abaixo exigem o Header:

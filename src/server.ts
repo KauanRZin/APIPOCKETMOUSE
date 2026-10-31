@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import authRoutes from "./routes/auth.routes";
 import profileRoutes from "./routes/profile.routes";
+import userRoutes from "./routes/user.routes";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -21,6 +22,10 @@ app.get("/", (_req, res) => {
         google: "POST /auth/google",
         me: "GET /auth/me (Bearer Token)",
       },
+      users: {
+        listAll: "GET /users (Pública - sem JWT)",
+        getById: "GET /users/:id (Pública - sem JWT)",
+      },
       profiles: {
         list: "GET /profiles (Bearer Token)",
         create: "POST /profiles (Bearer Token)",
@@ -32,6 +37,7 @@ app.get("/", (_req, res) => {
 });
 
 app.use("/auth", authRoutes);
+app.use("/users", userRoutes);
 app.use("/profiles", profileRoutes);
 
 app.listen(PORT, () => {
