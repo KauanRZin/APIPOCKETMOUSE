@@ -1,0 +1,21 @@
+# Dependências e Build
+node_modules/
+dist/
+
+# Variáveis de ambiente e segredos (NUNCA subir para o GitHub)
+.env
+.env.*
+!.env.example
+
+# Chaves e certificados
+*.pem
+*.key
+*.crt
+
+# Logs e arquivos temporários
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+.DS_Store
+Thumbs.db
